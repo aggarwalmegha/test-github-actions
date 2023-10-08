@@ -14,11 +14,17 @@ jobs:
     - name: Get env
       run: echo "env is ${{ inputs.ci-env }}"
 
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - name: Checkout code repository
+      uses: actions/checkout@v4
+
+    - if: ${{ inputs.ci-env == 'node' }}
+      name: Run Node CI pipeline
+      uses: aggarwalmegha/test-github-actions/.github/actions/node-ci@test-branch
+      with:
+        node_version: 18.18.0
 
     - if: ${{ inputs.ci-env == 'python' }}
       name: Run Python CI pipeline
       uses: aggarwalmegha/test-github-actions/.github/actions/python-ci@test-branch
       with:
-        python_version: 3.9.7
+        python_version: 3.12.0
