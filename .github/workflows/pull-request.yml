@@ -2,6 +2,9 @@ name: Run CI pipeline to test code
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - test-*
     
 jobs:
   run-ci-pipeline:
