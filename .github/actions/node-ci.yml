@@ -1,0 +1,17 @@
+name: Ci pipeline for node.js
+inputs:
+  node_js_version:
+    description: 'Node js version build'
+    required: true
+    default: '18.18.0'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node_js_version }}
+
+    - name: Install dependencies
+      run: npm install

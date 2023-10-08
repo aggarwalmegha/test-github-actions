@@ -1,0 +1,16 @@
+name: Run CI pipeline to test code
+
+on:
+  workflow_call:
+    
+jobs:
+  run-ci-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@4
+
+    - name: Run CI pipeline
+      uses: ./.github/actions/node-ci.yml
+      with:
+        node_js_version: 18.18.0
