@@ -15,7 +15,6 @@ runs:
         python-version: ${{ inputs.python_version }}
 
     - run: Install dependencies
-      working-directory: ./python
       shell: bash
       command: |
         python -m pip install --upgrade pip

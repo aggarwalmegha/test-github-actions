@@ -2,6 +2,11 @@ name: Run CI pipeline to test code
 
 on:
   workflow_call:
+    inputs:
+      ci-env:
+        description: 'build environment'
+        required: true
+        type: string
     
 jobs:
   run-ci-pipeline:
@@ -10,7 +15,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Run CI pipeline
+    - name: Run Node CI pipeline
+      if: ${{ inputs.ci-env == 'node' }}
       uses: aggarwalmegha/test-github-actions/.github/actions/node-ci@test-branch
       with:
         node_js_version: 18.18.0
+
+    - name: Run Python CI pipeline
+      if: ${{ inputs.ci-env == 'python' }}
+      uses: aggarwalmegha/test-github-actions/.github/actions/python-ci@test-branch
+      with:
+        python_version: 3.9.7
