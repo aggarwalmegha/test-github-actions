@@ -2,11 +2,10 @@ name: Run CI pipeline to test code
 
 on:
   workflow_call:
-    # inputs:
-    #   ci-env:
-    #     description: 'build environment'
-    #     required: true
-    #     type: string
+    inputs:
+      ci-env:
+        description: 'build environment'
+        type: string
     
 jobs:
   run-ci-pipeline:
@@ -19,3 +18,6 @@ jobs:
       uses: aggarwalmegha/test-github-actions/.github/actions/node-ci@test-branch
       with:
         node_js_version: 18.18.0
+
+    - name: Get env
+      run: echo "env is ${{ github.event.inputs.ci-env }}"
