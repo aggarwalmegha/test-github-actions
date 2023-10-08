@@ -16,11 +16,9 @@ jobs:
 
     - name: Checkout code
       uses: actions/checkout@v4
-      
-    - if: ${{ inputs.ci-env == 'node' }}
-      name: Run Node CI pipeline
-      uses: aggarwalmegha/test-github-actions/.github/actions/node-ci@test-branch
+
+    - if: ${{ inputs.ci-env == 'python' }}
+      name: Run Python CI pipeline
+      uses: aggarwalmegha/test-github-actions/.github/actions/python-ci@test-branch
       with:
-        node_js_version: 18.18.0
-
-
+        python_version: 3.9.7
