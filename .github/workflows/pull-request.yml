@@ -15,7 +15,7 @@ jobs:
       run: echo "env is ${{ inputs.ci-env }}"
 
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     - if: ${{ inputs.ci-env == 'python' }}
       name: Run Python CI pipeline
