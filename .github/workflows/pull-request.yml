@@ -20,4 +20,4 @@ jobs:
         node_js_version: 18.18.0
 
     - name: Get env
-      run: echo "env is ${{ github.event.inputs.ci-env }}"
+      run: echo "env is ${{ inputs.ci-env }}"
