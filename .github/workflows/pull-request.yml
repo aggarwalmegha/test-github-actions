@@ -13,8 +13,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
-    - name: Run Node CI pipeline
+      
+    - if: ${{ inputs.ci-env == 'node' }}
+      name: Run Node CI pipeline
       uses: aggarwalmegha/test-github-actions/.github/actions/node-ci@test-branch
       with:
         node_js_version: 18.18.0
