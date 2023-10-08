@@ -2,11 +2,11 @@ name: Run CI pipeline to test code
 
 on:
   workflow_call:
-    inputs:
-      ci-env:
-        description: 'build environment'
-        required: true
-        type: string
+    # inputs:
+    #   ci-env:
+    #     description: 'build environment'
+    #     required: true
+    #     type: string
     
 jobs:
   run-ci-pipeline:
