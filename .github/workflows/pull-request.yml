@@ -1,10 +1,7 @@
 name: Run CI pipeline to test code
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - test-*
+  workflow_call:
     
 jobs:
   run-ci-pipeline:
